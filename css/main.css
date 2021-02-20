@@ -1,6 +1,6 @@
 body {
     position: relative;
-    background-color: #5f6f7a;
+    background-color: #3d4d55;
 }
 
 @font-face {
@@ -56,12 +56,20 @@ a {
 
 #section1 {
     padding-top: 50px;
-    height: 500px;
+    height: 875px;
     color: #fff;
     background-color: #5f6f7a;
     background-image: url(images/SandiaMtnNM.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
+}
+
+.personal-statement {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #FFFFFF;
+
 }
 
 #section2 {
@@ -96,6 +104,36 @@ a {
 .research-block3 {
     background-color: #ffffff;
     background-image: url(images/uraniumSWAT.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 75%;
+    height: 450px;
+    border-radius: 15px;
+}
+
+.research-block4 {
+    background-color: #ffffff;
+    background-image: url(images/LRGpecans.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 75%;
+    height: 450px;
+    border-radius: 15px;
+}
+
+.research-block5 {
+    background-color: #ffffff;
+    /* background-image: url(; */
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 75%;
+    height: 450px;
+    border-radius: 15px;
+}
+
+.research-block6 {
+    background-color: #ffffff;
+    /* background-image: url(); */
     background-repeat: no-repeat;
     background-size: 100%;
     opacity: 75%;
