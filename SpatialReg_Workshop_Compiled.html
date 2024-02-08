@@ -10,6 +10,7 @@
 
 
 
+<meta name="date" content="2024-02-08" />
 
 <title>Introduction to Spatial Regression Methods in Environmental Health</title>
 
@@ -1688,9 +1689,7 @@ University of New Mexico<br> <sup>2</sup> Community Environmental Health
 Program, College of Pharmacy, University of New Mexico Health Sciences
 Center<br> <sup>3</sup> Department of Environmental Science, University
 of Arizona</em></p></h4>
-<h4 class="date"><div class="line-block">2024 PEPH Network Meeting<br />
-NIEHS, Durham NC<br />
-February 20, 2024</div></h4>
+<h4 class="date">2024 PEPH Network Meeting<br>NIEHS, Durham NC<br>February 20, 2024</h4>
 
 </div>
 
@@ -1770,10 +1769,50 @@ valuable in the realm of public health, in which associations between
 environmental exposure, human behavior, and health outcomes are complex
 and often present as non-linear, spatially heterogeneous
 relationships.</p>
+<div id="geographically-weighted-regression-gwr" class="section level4" number="1.1.2.1">
+<h4><span class="header-section-number">1.1.2.1</span> Geographically
+Weighted Regression (GWR)</h4>
+<p><a href="https://doi.org/10.1111/1467-9884.00145">Geographically
+weighted regression</a> (GWR) is a spatial regression technique that
+evaluates a local model of the variable or process you are trying to
+understand or predict by fitting a regression equation to every feature
+within a predetermined neighborhood in the dataset. While GWR is a local
+model, it does not assess the spatial scale at which processes may vary.
+In other words it assumes variance across an extent, but that all
+variances exist at the same spatial scale for every model term.</p>
 </div>
-<div id="spatial-autocorrelation" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Spatial
-Autocorrelation</h3>
+<div id="multiscale-geographically-weighted-regression-mgwr" class="section level4" number="1.1.2.2">
+<h4><span class="header-section-number">1.1.2.2</span> Multiscale
+Geographically Weighted Regression (MGWR)</h4>
+<p><a href="https://doi.org/10.1080/24694452.2017.1352480">Multiscale
+geographically weighted regression</a> (MGWR) builds upon the GWR
+technique by optimizing neighborhood sizes for each explanatory
+variable. This allows for the MGWR framework to examine both spatial
+variability and scalar effects simultaneously in local modeling.</p>
+</div>
+<div id="other-modeling-approaches" class="section level4" number="1.1.2.3">
+<h4><span class="header-section-number">1.1.2.3</span> Other Modeling
+Approaches</h4>
+<p><a href="https://s4.ad.brown.edu/resources/tutorial/modul2/geoda3final.pdf">Spatial
+autoregressive models</a> (SAR) are one of the most common approaches
+for handling spatial autocorrelation in datasets. Generally, they
+utilize one of two techniques: 1) a <em>spatial error model</em>
+computes an error coefficient (<span class="math inline">\(\lambda\)</span>) to test whether spatial error
+between terms is correlated, and 2) a <em>spatial lag model</em>
+introduces a spatial lag term <span class="math inline">\(\rho\)</span>
+to test if th dependent variable is affected by multiple independent
+observations at different locations. These methods are most commonly
+conducted in the open source GIS package, <a href="https://geodacenter.github.io/">GeoDa</a>. Various other local
+spatial models include Bayesian Spatially Varying Coefficients Models,
+Spatial Filtering methods, and Spatially Clustered Coefficient models.
+Additionally, other kinds of modeling approaches, such as machine
+learning based models, can be used to assess spatial relationships in
+data. This workshop will focus on the MGWR framework, given its
+computational efficiency, robust support in R, and widespread use.</p>
+</div>
+<div id="spatial-autocorrelation" class="section level4" number="1.1.2.4">
+<h4><span class="header-section-number">1.1.2.4</span> Spatial
+Autocorrelation</h4>
 <p>Spatial Autocorrelation is when data from locations near one another
 in space are more likely to be similar (i.e. are more correlated) than
 data from locations remote from one another. Spatial autocorrelation can
@@ -1793,46 +1832,6 @@ conclude that the given model is poorly specified by not attending to
 all spatial relationships between model terms. <em>Local models do not
 necessarily account for all spatial autocorrelation in model
 residuals.</em></p>
-<div id="geographically-weighted-regression-gwr" class="section level4" number="1.1.3.1">
-<h4><span class="header-section-number">1.1.3.1</span> Geographically
-Weighted Regression (GWR)</h4>
-<p><a href="https://doi.org/10.1111/1467-9884.00145">Geographically
-weighted regression</a> (GWR) is a spatial regression technique that
-evaluates a local model of the variable or process you are trying to
-understand or predict by fitting a regression equation to every feature
-within a predetermined neighborhood in the dataset. While GWR is a local
-model, it does not assess the spatial scale at which processes may vary.
-In other words it assumes variance across an extent, but that all
-variances exist at the same spatial scale for every model term.</p>
-</div>
-<div id="multiscale-geographically-weighted-regression-mgwr" class="section level4" number="1.1.3.2">
-<h4><span class="header-section-number">1.1.3.2</span> Multiscale
-Geographically Weighted Regression (MGWR)</h4>
-<p><a href="https://doi.org/10.1080/24694452.2017.1352480">Multiscale
-geographically weighted regression</a> (MGWR) builds upon the GWR
-technique by optimizing neighborhood sizes for each explanatory
-variable. This allows for the MGWR framework to examine both spatial
-variability and scalar effects simultaneously in local modeling.</p>
-</div>
-<div id="other-modeling-approaches" class="section level4" number="1.1.3.3">
-<h4><span class="header-section-number">1.1.3.3</span> Other Modeling
-Approaches</h4>
-<p><a href="https://s4.ad.brown.edu/resources/tutorial/modul2/geoda3final.pdf">Spatial
-autoregressive models</a> (SAR) are one of the most common approaches
-for handling spatial autocorrelation in datasets. Generally, they
-utilize one of two techniques: 1) a <em>spatial error model</em>
-computes an error coefficient (<span class="math inline">\(\lambda\)</span>) to test whether spatial error
-between terms is correlated, and 2) a <em>spatial lag model</em>
-introduces a spatial lag term <span class="math inline">\(\rho\)</span>
-to test if th dependent variable is affected by multiple independent
-observations at different locations. These methods are most commonly
-conducted in the open source GIS package, <a href="https://geodacenter.github.io/">GeoDa</a>. Various other local
-spatial models include Bayesian Spatially Varying Coefficients Models,
-Spatial Filtering methods, and Spatially Clustered Coefficient models.
-Additionally, other kinds of modeling approaches, such as machine
-learning based models, can be used to assess spatial relationships in
-data. This workshop will focus on the MGWR framework, given its
-computational efficiency, robust support in R, and widespread use.</p>
 </div>
 </div>
 </div>
@@ -2511,7 +2510,7 @@ results.</p>
 <pre><code>   ***********************************************************************
    *                       Package   GWmodel                             *
    ***********************************************************************
-   Program starts at: 2024-02-07 19:21:07 
+   Program starts at: 2024-02-08 10:30:28 
    Call:
    gwr.basic(formula = LWB_ADJRATE ~ avgReleasesLb_10yr + RPL_THEME1 + 
     RPL_THEME2 + RPL_THEME3 + RPL_THEME4, data = dat_full, bw = bw, 
@@ -2582,7 +2581,7 @@ results.</p>
    Adjusted R-square value:  0.143126 
 
    ***********************************************************************
-   Program stops at: 2024-02-07 19:21:07 </code></pre>
+   Program stops at: 2024-02-08 10:30:28 </code></pre>
 </div>
 <div id="gwr-model-interpretation-step-11" class="section level3" number="2.4.4">
 <h3><span class="header-section-number">2.4.4</span> GWR Model
@@ -2648,9 +2647,9 @@ kernel function <code>nb</code> and weighting scheme
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">rbind</span>(<span class="st">&quot;P-value of Moran&#39;s I statistic: &quot;</span>, moran_gwr<span class="sc">$</span>p.value)) </span></code></pre></div>
 <pre><code>     [,1]                              
 [1,] &quot;P-value of Moran&#39;s I statistic: &quot;
-[2,] &quot;0.004&quot;                           </code></pre>
+[2,] &quot;0&quot;                               </code></pre>
 <p>The Moran’s <span class="math inline">\(I\)</span> statistic of the
-GWR model is 0.0552 and the p-value is 0.004. Because the <span class="math inline">\(p-value\)</span> is <span class="math inline">\(&lt;0.05\)</span>, we can conclude at a 95% CI
+GWR model is 0.0552 and the p-value is 0. Because the <span class="math inline">\(p-value\)</span> is <span class="math inline">\(&lt;0.05\)</span>, we can conclude at a 95% CI
 that the residuals are significantly spatially autocorrelated, meaning
 that there are significant spatial relationships in the data that are
 not reconciled by the current local model.</p>
@@ -2836,7 +2835,7 @@ spatially locate outliers.</p>
 <tr class="odd">
 <td align="left">Moran’s I (p-value)</td>
 <td align="left">0.108 (0)</td>
-<td align="left">0.0552 (0.004)</td>
+<td align="left">0.0552 (0)</td>
 </tr>
 </tbody>
 </table>
@@ -3703,7 +3702,7 @@ The bandwidth for variable  RPL_THEME1 seems to be converged and will be kept th
 <pre><code>   ***********************************************************************
    *                       Package   GWmodel                             *
    ***********************************************************************
-   Program starts at: 2024-02-07 19:21:51 
+   Program starts at: 2024-02-08 10:31:12 
    Call:
    gwr.multiscale(formula = LWB_ADJRATE ~ avgReleasesLb_10yr + RPL_THEME1 + 
     RPL_THEME2 + RPL_THEME3 + RPL_THEME4, data = dat_full, kernel = &quot;gaussian&quot;, 
@@ -3744,7 +3743,7 @@ The bandwidth for variable  RPL_THEME1 seems to be converged and will be kept th
    Adjusted R-square value:  0.191442 
 
    ***********************************************************************
-   Program stops at: 2024-02-07 20:54:32 </code></pre>
+   Program stops at: 2024-02-08 12:03:46 </code></pre>
 </div>
 <div id="mgwr-model-interpretation-optional-step-2" class="section level3" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> MGWR Model
@@ -3804,9 +3803,9 @@ Autocorrelation</h5>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">rbind</span>(<span class="st">&quot;P-value of Moran&#39;s I statistic: &quot;</span>, moran_mgwr<span class="sc">$</span>p.value)) </span></code></pre></div>
 <pre><code>     [,1]                              
 [1,] &quot;P-value of Moran&#39;s I statistic: &quot;
-[2,] &quot;0.052&quot;                           </code></pre>
+[2,] &quot;0.042&quot;                           </code></pre>
 <p>The Moran’s <span class="math inline">\(I\)</span> statistic of the
-multiscale GWR model is -0.0336 and the p-value is 0.052. Because the
+multiscale GWR model is -0.0336 and the p-value is 0.042. Because the
 <span class="math inline">\(p-value\)</span> is <span class="math inline">\(&gt;0.05\)</span>, we can conclude at a 95% CI
 that the residuals are not significantly spatially autocorrelated,
 meaning that the model is correctly specified in terms of lurking
@@ -3938,8 +3937,8 @@ models:</p>
 <tr class="odd">
 <td align="left">Moran’s I (p-value)</td>
 <td align="left">0.108 (0)</td>
-<td align="left">0.0552 (0.004)</td>
-<td align="left">-0.0336 (0.052)</td>
+<td align="left">0.0552 (0)</td>
+<td align="left">-0.0336 (0.042)</td>
 </tr>
 </tbody>
 </table>
