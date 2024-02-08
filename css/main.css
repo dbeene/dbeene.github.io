@@ -68,9 +68,27 @@ a {
     text-align: center;
     padding-top: 50px;
     padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
     color: #FFFFFF;
-
+    font-family: tinos, sans-serif;
+    font-size: 120%;
 }
+
+@media (max-width: 450px) {
+    .personal-statement {
+        text-align: center;
+        padding: 50px;
+    }
+}
+
+@media (min-width: 451px) {
+    .personal-statement {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
 
 #section2 {
     padding-top: 2px;
